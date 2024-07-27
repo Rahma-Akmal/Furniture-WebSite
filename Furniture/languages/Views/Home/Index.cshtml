@@ -1,0 +1,75 @@
+﻿@model List<furniture>
+
+<div id="main">
+    <div id="content">
+        <div class="box">
+            <br />
+            <div class="container-fluid p-0 pb-5 justify-content-center">
+                <div class="owl-carousel header-carousel position-relative mb-5">
+                    <div class="owl-carousel-item position-relative" >
+                        
+                        <img class="img-fluid" src="~/img//why-choose-us-img.jpg" style="width:1500px;height:550px;">
+                        <h3 class="justify-content-center align-item-center" style="font-family:'Times New Roman', Times, serif;margin-left:130px;padding-left:80px;margin-bottom:50px;margin-top:20px;">
+                            Here You Can Find What You Want And Either When You Need To Add Yours 
+                        </h3>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="furniture-container">
+                @foreach (var item in Model)
+                {
+                    <div class="furniture-item">
+                        <a href="@Url.Action("Details", new { id = item.Id })">
+                            <div class="furniture-image">
+                                <img src="/img/@item.image" alt="@item.Name" />
+                                <span class="name" style="font-family:'Times New Roman', Times, serif;">@item.Name</span>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .furniture-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Adjust the gap between items as needed */
+        justify-content: start; /* Align items to the start of the container */
+        padding-left: 70px; /* Adjust to match your design */
+    }
+
+    .furniture-item {
+        flex: 1 1 calc(50% - 20px); /* 50% width minus gap size, adjust for 2 columns */
+        box-sizing: border-box;
+    }
+
+    .furniture-image {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+
+        .furniture-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+    .name {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-size:large;
+    }
+    h3:hover{
+        color:mediumpurple;
+        transform: scale(1.0);
+        margin-top: -5px; /* Adjust the top margin to make room for expansion */
+        margin-bottom: -5px; /* Adjust the bottom margin to make room for expansion */
+        padding: 0.5rem 1rem;
+    }
+</style>

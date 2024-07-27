@@ -1,0 +1,39 @@
+﻿@model furniture
+
+@{
+    ViewBag.Title = "Movie Details";
+}
+<style>
+    .text{
+        font-size:20px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="image-container">
+                <img src="~/img/@Model.image" alt="Movie Image" class="img-fluid rounded">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="details-container">
+                <h2 class="text">@Model.Name</h2>
+                <p class="text">@Model.Description</p>
+            </div>
+        </div>
+        <br />
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="col-md-8">
+                <div class="details-container">
+                    <a style="margin:10px;background-color:darkgray" class="btn btn-secondary" href="@Url.Action("Edit","furniture", new { id = Model.Id })">Edit</a>
+                    <a class="btn btn-secondary"style="background-color:darkgray" href="@Url.Action("Delete","furniture", new { id = Model.Id })">Delete</a>
+                </div>
+            </div>
+        }
+      
+    </div>
+</div>
+

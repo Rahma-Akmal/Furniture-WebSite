@@ -1,0 +1,115 @@
+﻿@model languages.ViewModel.registervm
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<section class="text-center text-lg-start">
+    <style>
+        .cascading-right {
+            margin-right: -50px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            background-color: #f7f7f7;
+            padding: 3rem;
+        }
+
+        .form-outline {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+            .form-outline input {
+                padding: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-outline label {
+                position: absolute;
+                top: -10px;
+                left: 10px;
+                background: #f7f7f7;
+                padding: 0 5px;
+                color: #555;
+                font-size: 0.875rem;
+            }
+
+            .form-outline .text-danger {
+                color: #e74c3c;
+                font-size: 0.875rem;
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+
+        .form-title {
+            margin-bottom: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+
+    <div class="container py-4 rounded-3">
+        <div class="row g-0 align-items-center justify-content-center">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="form-container">
+                    <div class="card cascading-right">
+                        <div class="card-body p-5 shadow-5 text-center">
+                            <h2 class="form-title">Sign in now</h2>
+                            <form asp-action="Register" method="post">
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Name" type="text" id="form3Example1" class="form-control" />
+                                    <label asp-for="Name" class="form-label" for="form3Example1">Name</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Email" type="text" id="form3Example2" class="form-control" />
+                                    <label asp-for="Email" class="form-label" for="form3Example2">Email</label>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Password" type="password" id="form3Example3" class="form-control" />
+                                    <label asp-for="Password" class="form-label" for="form3Example3">Password</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input asp-for="confirmPassword" type="password" id="form3Example4" class="form-control" />
+                                    <label asp-for="confirmPassword" class="form-label" for="form3Example4">Confirm Password</label>
+                                    <span asp-validation-for="confirmPassword" class="text-danger"></span>
+                                </div>
+                                <button type="submit" value="register" class="btn btn-primary btn-block mb-4">
+                                    Sign in
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

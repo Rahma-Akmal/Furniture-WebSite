@@ -1,0 +1,116 @@
+﻿@model languages.ViewModel.LogIn
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="text-center text-lg-start">
+    <style>
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(30px);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 3rem;
+        }
+
+        .form-outline {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+            .form-outline input {
+                padding: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-outline label {
+                position: absolute;
+                top: -10px;
+                left: 10px;
+                background: rgba(255, 255, 255, 0.55);
+                padding: 0 5px;
+                color: #555;
+                font-size: 0.875rem;
+            }
+
+            .form-outline .text-danger {
+                color: #e74c3c;
+                font-size: 0.875rem;
+            }
+
+        .form-check-label {
+            margin-left: 5px;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+
+        .form-title {
+            margin-bottom: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+
+    <div class="container py-4 rounded-3">
+        <div class="row justify-content-center align-items-center g-0">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="form-container">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h2 class="form-title">Log In</h2>
+                            <form asp-action="Login" method="post">
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Name" type="text" id="form3Example1" class="form-control" />
+                                    <label asp-for="Name" class="form-label" for="form3Example1">Name</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Password" type="password" id="form3Example4" class="form-control" />
+                                    <label asp-for="Password" class="form-label" for="form3Example4">Password</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group form-check mb-4">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                                    </label>
+                                </div>
+
+                                <button type="submit" value="login" class="btn btn-primary btn-block mb-4" style="color:white">
+                                    LOGIN
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
